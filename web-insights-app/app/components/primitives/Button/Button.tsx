@@ -1,10 +1,9 @@
-import styles from './Button.module.css';
-
+import styles from "./Button.module.css";
 
 type ButtonProps = {
-    text ?: string
-}
+  text?: string;
+};
 
-export function Button({text}: ButtonProps) {
-    return <button className={styles.base}>{text}</button>
+export function Button({ text }: ButtonProps) {
+  return <button className={styles.base}>{text}</button>;
 }

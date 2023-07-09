@@ -32,9 +32,15 @@
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
     "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0-alpha.2",
     "eslint-plugin-storybook": "^0.6.12",
+    "prettier": "3.0.0",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.25",
+    "stylelint": "^15.10.1",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-prettier": "^4.0.0",
     "typescript": "^5.0.4"
   },
   "engines": {
