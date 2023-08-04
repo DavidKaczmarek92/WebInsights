@@ -9,7 +9,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "jest",
-    "eslint": "npx eslint --max-warnings 0"
+    "eslint": "npx eslint --max-warnings 0",
+    "stylelint": "stylelint \"**/*module.css\""
   },
   "dependencies": {
     "@remix-run/css-bundle": "^1.18.1",
