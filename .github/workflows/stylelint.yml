@@ -28,5 +28,5 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Code Linting
+      - name: Style Linting
         run: npm run stylelint
