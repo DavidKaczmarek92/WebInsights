@@ -1,4 +1,4 @@
-package com.web_insights.samples;
+package org.webinsights.samples;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
