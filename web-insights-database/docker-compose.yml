@@ -9,6 +9,6 @@ services:
     environment:
       POSTGRES_PASSWORD: insider
       POSTGRES_USER: insider
-      POSTGRES_DB: web-insights
+      POSTGRES_DB: web_insights
     ports:
       - "5432:5432"
