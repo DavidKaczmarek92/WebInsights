@@ -4,7 +4,7 @@ on: [ pull_request ]
 
 jobs:
 
-  formatting:
+  linting:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3 # v2 minimum required
