@@ -6,5 +6,4 @@
 
 # WebInsights
 
-
 Open Source Software for monitoring and testing your website or web app.
