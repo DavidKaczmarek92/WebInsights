@@ -8,7 +8,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { Typography } from "app/components/primitive";
 import "app/lib/global/fonts.css";
 import "normalize.css";
 
@@ -26,7 +25,6 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Typography>Test</Typography>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
