@@ -4,7 +4,7 @@ import styles from "./Typography.module.css";
 
 const cx = classNames.bind(styles);
 
-export type AllowedTags =
+export type Tag =
   | "label"
   | "span"
   | "p"
@@ -15,10 +15,12 @@ export type AllowedTags =
   | "h5"
   | "h6";
 
+export type Variant = "bold" | "normal" | "light";
+
 type TypographyProps = {
-  as?: AllowedTags;
+  as?: Tag;
   className?: string;
-  variant?: "bold" | "normal" | "light";
+  variant?: Variant;
   children: ReactNode;
 };
 

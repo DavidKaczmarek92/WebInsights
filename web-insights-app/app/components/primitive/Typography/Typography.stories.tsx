@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { AllowedTags } from "./Typography";
+import type { Tag } from "./Typography";
 import { Typography as TypographyComponent } from "./Typography";
 
 const meta: Meta<typeof TypographyComponent> = {
@@ -11,7 +11,7 @@ type Story = StoryObj<typeof TypographyComponent>;
 
 const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 
-const tags: Array<AllowedTags> = [
+const tags: Array<Tag> = [
   "h1",
   "h2",
   "h3",

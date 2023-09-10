@@ -1,4 +1,5 @@
 import { render, screen } from "app/utils/testUtils";
+import type { Variant, Tag } from "./Typography";
 import { Typography } from "./Typography";
 
 describe("<Typography />", () => {
@@ -10,11 +11,37 @@ describe("<Typography />", () => {
     expect(element.tagName).toBe("P");
   });
 
-  test("should render other html tag", () => {
-    render(<Typography as="span">Lorem</Typography>);
+  describe("Tags", () => {
+    const cases: Array<Tag> = [
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "h5",
+      "h6",
+      "p",
+      "label",
+      "span",
+    ];
 
-    const element = screen.getByText("Lorem");
+    test.each(cases)("should render %s tag", (tag) => {
+      render(<Typography as={tag}>Lorem</Typography>);
 
-    expect(element.tagName).toBe("SPAN");
+      const element = screen.getByText("Lorem");
+
+      expect(element.tagName).toBe(tag.toUpperCase());
+    });
+  });
+
+  describe("Variants", () => {
+    const cases: Array<Variant> = ["bold", "normal", "light"];
+
+    test.each(cases)("should render %s variant", (variant) => {
+      render(<Typography variant={variant}>Lorem</Typography>);
+
+      const element = screen.getByText("Lorem");
+
+      expect(element).toHaveClass(variant);
+    });
   });
 });
