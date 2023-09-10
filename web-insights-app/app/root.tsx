@@ -8,7 +8,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { Button } from "app/components/primitives/Button";
+import "app/lib/global/fonts.css";
+import "normalize.css";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -24,7 +25,6 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Button text="Test button" />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

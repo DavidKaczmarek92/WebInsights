@@ -6,5 +6,8 @@
   },
   "setupFilesAfterEnv": [
     "@testing-library/jest-dom/extend-expect"
-  ]
+  ],
+  "moduleNameMapper": {
+    "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
+  }
 }
