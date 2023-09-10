@@ -12,7 +12,10 @@ java {
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
 }
+
+apply(plugin = "io.spring.dependency-management")
 
 dependencies {
   implementation(platform("org.springframework.boot:spring-boot-dependencies:3.1.3"))
