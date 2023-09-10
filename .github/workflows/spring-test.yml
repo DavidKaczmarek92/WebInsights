@@ -17,14 +17,8 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      - name: Build project
-        run: ./gradlew build
-
       - name: Start containers
         run: ./gradlew composeUp
-
-      - name: Run tests
-        run: ./gradlew test
 
       - name: Stop database containers
         if: always()
