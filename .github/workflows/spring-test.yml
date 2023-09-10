@@ -20,6 +20,9 @@ jobs:
       - name: Start containers
         run: ./gradlew composeUp
 
+      - name: Run tests
+        run: ./gradlew test
+
       - name: Stop database containers
         if: always()
         run: ./gradlew composeDown
