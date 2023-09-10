@@ -11,6 +11,14 @@ describe("<Typography />", () => {
     expect(element.tagName).toBe("P");
   });
 
+  test("should add custom css class", () => {
+    render(<Typography className="test">Lorem</Typography>);
+
+    const element = screen.getByText("Lorem");
+
+    expect(element).toHaveClass("test");
+  });
+
   describe("Tags", () => {
     const cases: Array<Tag> = [
       "h1",
