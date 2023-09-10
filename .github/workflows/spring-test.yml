@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  sping-test:
+  spring-test:
     timeout-minutes: 10
     runs-on: ubuntu-latest
 
@@ -33,6 +33,6 @@ jobs:
       - name: Run tests
         run: ./gradlew test
 
-      - name: Stop database containers
+      - name: Stop containers
         if: always()
         run: ./gradlew composeDown
