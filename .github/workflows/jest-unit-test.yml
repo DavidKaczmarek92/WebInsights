@@ -2,6 +2,8 @@ name: jest unit test
 
 on:
   pull_request:
+    paths:
+      - '**/*.(ts|tsx)'
     branches:
       - main
 
