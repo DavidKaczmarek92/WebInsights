@@ -1,7 +1,7 @@
 {
   "extends": ["stylelint-config-standard", "stylelint-prettier/recommended"],
   "ignoreFiles": [
-    "app/styles/app.css"
+    "app/styles/build/app.css"
   ],
   "rules": {
     "at-rule-no-unknown": [true, {
