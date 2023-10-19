@@ -2,8 +2,10 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css -m",
+    "dev": "concurrently \" npm run dev:css \" \"remix dev\"",
+    "dev:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css -w",
     "start": "remix-serve build",
     "typecheck": "tsc",
     "storybook": "storybook dev -p 6006",
@@ -11,7 +13,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "eslint": "npx eslint --max-warnings 0",
-    "stylelint": "stylelint \"**/*module.css\""
+    "stylelint": "stylelint \"**/*.css\""
   },
   "dependencies": {
     "@remix-run/css-bundle": "^1.18.1",
@@ -40,6 +42,7 @@
     "@types/jest": "^29.5.3",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
+    "concurrently": "^8.2.2",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^5.0.0-alpha.2",
@@ -53,6 +56,7 @@
     "stylelint": "^15.10.1",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.0.0",
+    "tailwindcss": "^3.3.3",
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.4"
   },
