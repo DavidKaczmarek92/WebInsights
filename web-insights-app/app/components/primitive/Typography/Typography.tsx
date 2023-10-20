@@ -27,7 +27,6 @@ export function Typography({
   className,
   children,
 }: TypographyProps) {
-  const test = "test";
   const classes = cn(
     {
       "font-bold": variant === "bold",
