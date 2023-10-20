@@ -3,7 +3,8 @@ name: eslint
 on:
   pull_request:
     paths:
-      - '**/*.(ts|tsx)'
+      - '**/*.tsx'
+      - '**/*.ts'
     branches:
       - main
 
