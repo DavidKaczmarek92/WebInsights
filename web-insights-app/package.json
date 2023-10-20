@@ -14,7 +14,7 @@
     "storybook:build:css": "tailwindcss -m -i styles/src/main.css -o .storybook/styles/build/app.css -m",
     "test": "jest",
     "test:watch": "jest --watch",
-    "eslint": "npx eslint --max-warnings 0",
+    "eslint": "npx eslint --max-warnings 0 --ext .ts,.tsx .",
     "stylelint": "stylelint \"**/*.css\""
   },
   "dependencies": {
