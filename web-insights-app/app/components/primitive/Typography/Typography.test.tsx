@@ -49,7 +49,7 @@ describe("<Typography />", () => {
 
       const element = screen.getByText("Lorem");
 
-      expect(element).toHaveClass(variant);
+      expect(element).toHaveClass(`font-${variant}`);
     });
   });
 });

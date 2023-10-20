@@ -3,13 +3,15 @@
   "sideEffects": false,
   "scripts": {
     "build": "npm run build:css && remix build",
-    "build:css": "tailwindcss -m -i app/styles/src/main.css -o app/styles/build/app.css -m",
-    "dev": "concurrently \" npm run dev:css \" \"remix dev\"",
-    "dev:css": "tailwindcss -m -i app/styles/src/main.css -o app/styles/build/app.css -w",
+    "build:css": "tailwindcss -m -i styles/src/main.css -o app/styles/build/app.css -m",
+    "dev": "concurrently \"npm run dev:css \" \"remix dev\"",
+    "dev:css": "tailwindcss -m -i styles/src/main.css -o app/styles/build/app.css -w",
     "start": "remix-serve build",
     "typecheck": "tsc",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "storybook": "concurrently \"npm run storybook:css\" \"storybook dev -p 6006\"",
+    "storybook:css": "tailwindcss -m -i styles/src/main.css -o .storybook/styles/build/app.css -w",
+    "storybook:build": "storybook npm run storybook:build:css && build",
+    "storybook:build:css": "tailwindcss -m -i styles/src/main.css -o .storybook/styles/build/app.css -m",
     "test": "jest",
     "test:watch": "jest --watch",
     "eslint": "npx eslint --max-warnings 0",
@@ -21,11 +23,12 @@
     "@remix-run/react": "^1.18.1",
     "@remix-run/serve": "^1.18.1",
     "@storybook/addon-a11y": "^7.0.25",
-    "classnames": "^2.3.2",
+    "clsx": "^2.0.0",
     "isbot": "^3.6.8",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.18.1",
@@ -58,7 +61,8 @@
     "stylelint-prettier": "^4.0.0",
     "tailwindcss": "^3.3.3",
     "ts-jest": "^29.1.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "vite-tsconfig-paths": "^4.2.1"
   },
   "engines": {
     "node": ">=14.0.0"
