@@ -16,7 +16,7 @@ defaults:
 
 jobs:
   linting:
-    name: eslint
+    name: stylelint
     runs-on: ubuntu-latest
     steps:
       - name: Install NodeJS

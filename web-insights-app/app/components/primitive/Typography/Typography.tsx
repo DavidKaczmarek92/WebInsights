@@ -1,8 +1,5 @@
 import type { ReactNode } from "react";
-import classNames from "classnames/bind";
-import styles from "./Typography.module.css";
-
-const cx = classNames.bind(styles);
+import { cn } from "app/lib/utils";
 
 export type Tag =
   | "label"
@@ -30,7 +27,14 @@ export function Typography({
   className,
   children,
 }: TypographyProps) {
-  const classes = cx("basic", Tag, variant, className);
+  const classes = cn(
+    {
+      "font-bold": variant === "bold",
+      "font-normal": variant === "normal",
+      "font-light": variant === "light",
+    },
+    className,
+  );
 
   return <Tag className={classes}>{children}</Tag>;
 }
