@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { cn } from "app/lib/utils";
-import { v } from "@storybook/preview-api/dist/sortStories-243da0ce";
 
 export type Tag =
   | "label"
