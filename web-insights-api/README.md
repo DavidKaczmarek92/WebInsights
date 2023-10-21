@@ -5,9 +5,7 @@ Run spring boot:
 ./gradlew bootRun
 ```
 
-Run spring boot with hot swapping:
-
-Run this command in the separate terminal window.
+To run spring boot with hot swapping you need to use this commands in the separate terminal window:
 
 ```sh
 gradle -t classes
@@ -21,6 +19,7 @@ Run spring boot(continuous build):
 ```sh
 ./gradlew -t bootRun
 ```
+
 Run unit tests: 
 ```sh
 ./gradlew test
