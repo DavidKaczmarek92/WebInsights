@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/web-insights-api" />
             <option value="$PROJECT_DIR$/web-insights-database" />
+            <option value="$PROJECT_DIR$/web-insights-keycloak" />
           </set>
         </option>
       </GradleProjectSettings>
