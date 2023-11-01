@@ -15,11 +15,6 @@ gradle -t classes
 ./gradlew bootRun
 ```
 
-Run spring boot(continuous build):
-```sh
-./gradlew -t bootRun
-```
-
 Run unit tests: 
 ```sh
 ./gradlew test
