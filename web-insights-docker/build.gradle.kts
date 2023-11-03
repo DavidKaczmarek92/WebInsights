@@ -3,5 +3,6 @@ plugins {
 }
 
 dockerCompose {
+    removeContainers = false
     removeVolumes = false
 }
