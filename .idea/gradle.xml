@@ -9,8 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/web-insights-api" />
-            <option value="$PROJECT_DIR$/web-insights-database" />
-            <option value="$PROJECT_DIR$/web-insights-keycloak" />
+            <option value="$PROJECT_DIR$/web-insights-docker" />
           </set>
         </option>
       </GradleProjectSettings>
