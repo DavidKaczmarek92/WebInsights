@@ -1,0 +1,34 @@
+version: '3.1'
+
+
+volumes:
+  web-insights-database:
+    driver: local
+
+services:
+  web-insights-database:
+    container_name: web-insights-database
+    image: postgres
+    volumes:
+      - web-insights-database:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: insider
+      POSTGRES_USER: insider
+      POSTGRES_DB: web_insights
+    ports:
+      - "5432:5432"
+  web-insights-keycloak:
+    container_name: web-insights-keycloak
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: web-insights-database
+      DB_DATABASE: web_insights
+      DB_USER: insider
+      DB_PASSWORD: insider
+      KEYCLOAK_USER: keycloak_admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+    image: mihaibob/keycloak:17.0.0-legacy
+    ports:
+      - "8888:8080"
+    depends_on:
+        - web-insights-database
