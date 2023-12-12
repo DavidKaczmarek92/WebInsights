@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,13 +13,11 @@ import org.springframework.security.web.authentication.session.RegisterSessionAu
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    private final KeycloakLogoutHandler keycloakLogoutHandler;
-    SecurityConfig(KeycloakLogoutHandler keycloakLogoutHandler) {
-        this.keycloakLogoutHandler = keycloakLogoutHandler;
-    }
     @Bean
     protected SessionAuthenticationStrategy sessionAuthenticationStrategy() {
         return new RegisterSessionAuthenticationStrategy(new SessionRegistryImpl());
@@ -28,16 +25,12 @@ public class SecurityConfig {
     @Order(1)
     @Bean
     public SecurityFilterChain clientFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-              .requestMatchers(new AntPathRequestMatcher("*"))
-                .permitAll()
-                .anyRequest()
-                .authenticated();
-        http.oauth2Login()
-                .and()
-                .logout()
-                .addLogoutHandler(keycloakLogoutHandler)
-                .logoutSuccessUrl("/");
+        http
+            .authorizeHttpRequests(authorize -> authorize
+                    .anyRequest().authenticated()
+                )
+            .oauth2Login(withDefaults());
+
         return http.build();
     }
 
@@ -49,7 +42,8 @@ public class SecurityConfig {
                 .hasRole("USER")
                 .anyRequest()
                 .authenticated();
-        http.oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()));
+        http.oauth2ResourceServer((oauth2) -> oauth2.jwt(withDefaults()));
+
         return http.build();
     }
     @Bean
