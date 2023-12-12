@@ -16,8 +16,6 @@ export const meta: V2_MetaFunction = () => {
 export default function Index() {
   const data = useLoaderData<User | null>();
 
-  console.log(data);
-
   return (
     <>
       <Link to="/dashboard">Dashboard</Link>
