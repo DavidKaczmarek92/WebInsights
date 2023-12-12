@@ -17,40 +17,33 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    @Bean
-    protected SessionAuthenticationStrategy sessionAuthenticationStrategy() {
-        return new RegisterSessionAuthenticationStrategy(new SessionRegistryImpl());
-    }
-    @Order(1)
-    @Bean
-    public SecurityFilterChain clientFilterChain(HttpSecurity http) throws Exception {
-        http
-            .authorizeHttpRequests(authorize -> authorize
-                .anyRequest()
-                .authenticated()
-            )
-            .oauth2Login(withDefaults());
+  @Bean
+  protected SessionAuthenticationStrategy sessionAuthenticationStrategy() {
+    return new RegisterSessionAuthenticationStrategy(new SessionRegistryImpl());
+  }
 
-        return http.build();
-    }
+  @Order(1)
+  @Bean
+  public SecurityFilterChain clientFilterChain(HttpSecurity http) throws Exception {
+    http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
+        .oauth2Login(withDefaults());
 
-    @Order(2)
-    @Bean
-    public SecurityFilterChain resourceServerFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authorize -> authorize
-            .requestMatchers("*")
-            .hasRole("USER")
-            .anyRequest()
-            .authenticated()
-        );
+    return http.build();
+  }
 
-        http.oauth2ResourceServer((oauth2) -> oauth2.jwt(withDefaults()));
+  @Order(2)
+  @Bean
+  public SecurityFilterChain resourceServerFilterChain(HttpSecurity http) throws Exception {
+    http.authorizeHttpRequests(
+        authorize -> authorize.requestMatchers("*").hasRole("USER").anyRequest().authenticated());
 
-        return http.build();
-    }
-    @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-        return http.getSharedObject(AuthenticationManagerBuilder.class)
-                .build();
-    }
+    http.oauth2ResourceServer((oauth2) -> oauth2.jwt(withDefaults()));
+
+    return http.build();
+  }
+
+  @Bean
+  public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+    return http.getSharedObject(AuthenticationManagerBuilder.class).build();
+  }
 }
