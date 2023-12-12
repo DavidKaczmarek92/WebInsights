@@ -18,6 +18,7 @@ services:
     ports:
       - "5432:5432"
   web-insights-keycloak:
+    platform: linux/amd64
     container_name: web-insights-keycloak
     environment:
       DB_VENDOR: POSTGRES
