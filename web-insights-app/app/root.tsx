@@ -8,7 +8,6 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import stylesheet from "./styles/build/app.css";
-import { Typography } from "./components/primitive";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -25,7 +24,6 @@ export default function App() {
       </head>
       <body>
         <h1 className="text-4xl">Hello world</h1>
-        <Typography variant="bold">test</Typography>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
