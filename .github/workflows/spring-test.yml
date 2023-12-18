@@ -28,10 +28,10 @@ jobs:
           gradle-version: 8.3
 
       - name: Start containers
-        run: ./gradlew composeUp --scan
+        run: ./gradlew composeUp
 
       - name: Run tests
-        run: ./gradlew test --scan
+        run: ./gradlew test
 
       - name: Stop containers
         if: always()
