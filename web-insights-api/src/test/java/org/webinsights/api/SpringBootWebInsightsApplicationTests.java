@@ -1,10 +1,10 @@
-package org.webinsights.samples;
+package org.webinsights.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootDemoApplicationTests {
+class SpringBootWebInsightsApplicationTests {
 
   @Test
   void contextLoads() {}
