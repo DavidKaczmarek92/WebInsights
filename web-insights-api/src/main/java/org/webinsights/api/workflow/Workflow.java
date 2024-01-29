@@ -14,9 +14,8 @@ public class Workflow {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-
-  // TODO: Generate default workflow title
-  private String title = "Workflow";
+  
+  private String title;
   @CreatedDate private Date createdAt;
   @LastModifiedDate private Date lastModifiedAt;
 

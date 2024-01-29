@@ -11,7 +11,7 @@ public class WorkflowService {
 
   private final WorkflowRepository workflowRepository;
 
-  public WorkflowService(final WorkflowRepository workflowRepository) {
+  public WorkflowService(WorkflowRepository workflowRepository) {
     this.workflowRepository = workflowRepository;
   }
 
@@ -30,8 +30,6 @@ public class WorkflowService {
   public Workflow saveWorkflow(Workflow workflow) {
     return workflowRepository.save(workflow);
   }
-
-  // TODO: add update method
 
   public void deleteWorkflow(Long id) {
     workflowRepository.deleteById(id);

@@ -1,12 +1,22 @@
 import type { LoaderFunction } from "@remix-run/node";
-import { Form, Link } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import { Form, Link, useLoaderData } from "@remix-run/react";
 import { isAuthenticated } from "~/utils/auth";
 
 export const loader: LoaderFunction = async ({ request }) => {
-  return await isAuthenticated(request);
+  await isAuthenticated(request);
+
+  const response = await fetch("http://localhost:8080/workflows");
+  const data = await response.json();
+
+  return { data };
 };
 
 export default function Dashboard() {
+  const data = useLoaderData();
+
+  console.log(data);
+
   return (
     <div>
       <h1>dashboard</h1>
