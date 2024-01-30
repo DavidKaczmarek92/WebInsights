@@ -31,10 +31,11 @@ public class WorkflowController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Workflow> updateWorkflow(@PathVariable Long id, @RequestBody Workflow workflowDetails) {
-     Workflow updatedWorkflow = workflowService.updateWorkflow(id, workflowDetails);
+  public ResponseEntity<Workflow> updateWorkflow(
+      @PathVariable Long id, @RequestBody Workflow workflowDetails) {
+    Workflow updatedWorkflow = workflowService.updateWorkflow(id, workflowDetails);
 
-     return ResponseEntity.ok(updatedWorkflow);
+    return ResponseEntity.ok(updatedWorkflow);
   }
 
   @DeleteMapping("/{id}")
