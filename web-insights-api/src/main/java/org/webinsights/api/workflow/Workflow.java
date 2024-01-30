@@ -14,7 +14,7 @@ public class Workflow {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-  
+
   private String title;
   @CreatedDate private Date createdAt;
   @LastModifiedDate private Date lastModifiedAt;
@@ -45,6 +45,10 @@ public class Workflow {
 
   public String getTitle() {
     return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   public Date getCreatedAt() {

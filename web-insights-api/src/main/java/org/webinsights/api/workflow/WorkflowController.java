@@ -22,15 +22,20 @@ public class WorkflowController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<Workflow> getWorkflowBy(@PathVariable Long id) {
-    Optional<Workflow> workflow = workflowService.findWorkflowById(id);
-
-    return workflow.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+  public Workflow getWorkflowBy(@PathVariable Long id) {
+    return workflowService.findWorkflowById(id);
   }
 
   @PostMapping
   public Workflow createWorkflow(@RequestBody Workflow workflow) {
     return workflowService.saveWorkflow(workflow);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Workflow> updateWorkflow(@PathVariable Long id, @RequestBody Workflow workflowDetails) {
+     Workflow updatedWorkflow = workflowService.updateWorkflow(id, workflowDetails);
+
+     return ResponseEntity.ok(updatedWorkflow);
   }
 
   @DeleteMapping("/{id}")

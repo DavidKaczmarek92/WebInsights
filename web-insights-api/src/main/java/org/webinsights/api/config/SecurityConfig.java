@@ -25,8 +25,7 @@ public class SecurityConfig {
   @Order(1)
   @Bean
   public SecurityFilterChain clientFilterChain(HttpSecurity http) throws Exception {
-    http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
-        .oauth2Login(withDefaults());
+    http.authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll());
 
     return http.build();
   }
@@ -35,7 +34,7 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain resourceServerFilterChain(HttpSecurity http) throws Exception {
     http.authorizeHttpRequests(
-        authorize -> authorize.requestMatchers("*").hasRole("USER").anyRequest().authenticated());
+        authorize -> authorize.requestMatchers("/workflows").hasRole("user").anyRequest().authenticated());
 
     http.oauth2ResourceServer((oauth2) -> oauth2.jwt(withDefaults()));
 
