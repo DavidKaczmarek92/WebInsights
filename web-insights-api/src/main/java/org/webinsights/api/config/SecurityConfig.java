@@ -34,7 +34,7 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain resourceServerFilterChain(HttpSecurity http) throws Exception {
     http.authorizeHttpRequests(
-        authorize -> authorize.requestMatchers("/workflows").hasRole("user").anyRequest().authenticated());
+        authorize -> authorize.requestMatchers("*").hasRole("USER").anyRequest().authenticated());
 
     http.oauth2ResourceServer((oauth2) -> oauth2.jwt(withDefaults()));
 
