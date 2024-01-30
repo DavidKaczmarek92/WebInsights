@@ -1,13 +1,10 @@
 package org.webinsights.api.workflow;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.hibernate.jdbc.Work;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class WorkflowService {
