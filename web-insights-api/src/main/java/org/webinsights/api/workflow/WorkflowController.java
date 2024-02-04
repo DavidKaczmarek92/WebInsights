@@ -38,13 +38,9 @@ public class WorkflowController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<?> deleteWorkflow(@PathVariable Long id) {
-    try {
-      workflowService.deleteWorkflow(id);
+  public ResponseEntity<Void> deleteWorkflow(@PathVariable Long id) {
+    workflowService.deleteWorkflow(id);
 
-      return ResponseEntity.ok().build();
-    } catch (EmptyResultDataAccessException e) {
-      return ResponseEntity.notFound().build();
-    }
+    return ResponseEntity.noContent().build();
   }
 }
