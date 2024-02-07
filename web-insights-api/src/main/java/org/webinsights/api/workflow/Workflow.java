@@ -2,10 +2,14 @@ package org.webinsights.api.workflow;
 
 import jakarta.persistence.*;
 import java.util.Date;
+
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+@Getter
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class Workflow {
@@ -14,8 +18,10 @@ public class Workflow {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
+  @Setter
   private String title;
   @CreatedDate private Date createdAt;
+
   @LastModifiedDate private Date lastModifiedAt;
 
   protected Workflow() {}
@@ -36,25 +42,5 @@ public class Workflow {
         + ", lastModifiedAt= "
         + lastModifiedAt
         + "]";
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public Date getCreatedAt() {
-    return createdAt;
-  }
-
-  public Date getLastModifiedAt() {
-    return lastModifiedAt;
   }
 }
