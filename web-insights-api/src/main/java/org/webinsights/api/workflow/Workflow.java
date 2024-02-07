@@ -18,8 +18,7 @@ public class Workflow {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  @Setter
-  private String title;
+  @Setter private String title;
   @CreatedDate private Date createdAt;
 
   @LastModifiedDate private Date lastModifiedAt;
