@@ -2,7 +2,6 @@ package org.webinsights.api.workflow;
 
 import jakarta.persistence.*;
 import java.util.Date;
-
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
