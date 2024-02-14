@@ -18,20 +18,11 @@ services:
     ports:
       - "5432:5432"
   web-insights-keycloak:
+    command: start-dev
     container_name: web-insights-keycloak
     environment:
-      DB_VENDOR: POSTGRES
-      DB_ADDR: web-insights-database
-      DB_DATABASE: web_insights
-      DB_USER: insider
-      DB_PASSWORD: insider
-      KEYCLOAK_USER: keycloak_admin
-      KEYCLOAK_PASSWORD: Pa55w0rd
-      KEYCLOAK_IMPORT: /opt/jboss/keycloak/imports/realm-export.json
-    image: mihaibob/keycloak:18.0.2-legacy
-    volumes:
-      - ./imports/realm-export.json:/opt/jboss/keycloak/imports/realm-export.json
+      KEYCLOAK_ADMIN: keycloak_admin
+      KEYCLOAK_ADMIN_PASSWORD: Pa55w0rd
+    image: quay.io/keycloak/keycloak:23.0.6
     ports:
       - "8888:8080"
-    depends_on:
-        - web-insights-database
