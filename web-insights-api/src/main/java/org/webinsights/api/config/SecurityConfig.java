@@ -1,4 +1,4 @@
-package org.webinsights.samples;
+package org.webinsights.api.config;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
