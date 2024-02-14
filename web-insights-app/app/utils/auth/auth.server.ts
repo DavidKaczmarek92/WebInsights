@@ -15,7 +15,7 @@ export const sessionStorage = createCookieSessionStorage({
 });
 
 export type User = {
-  name: string;
+  accessToken: string;
 };
 
 export const authenticator = new Authenticator<User>(sessionStorage);
@@ -29,8 +29,8 @@ const keycloakStrategy = new KeycloakStrategy(
     clientSecret: process.env.KEYCLOAK_CLIENT_SECRET,
     callbackURL: "/auth/keycloak/callback",
   },
-  async ({ profile }) => {
-    return { name: profile.displayName };
+  async ({ accessToken }) => {
+    return { accessToken };
   },
 );
 
