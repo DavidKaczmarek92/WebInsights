@@ -8,7 +8,7 @@
   "accessTokenLifespan": 300,
   "accessTokenLifespanForImplicitFlow": 900,
   "ssoSessionIdleTimeout": 1800,
-  "ssoSessionMaxLifespan": 36000,
+  "ssoSessionMaxLifespan": 864000,
   "ssoSessionIdleTimeoutRememberMe": 0,
   "ssoSessionMaxLifespanRememberMe": 0,
   "offlineSessionIdleTimeout": 2592000,
@@ -48,7 +48,15 @@
       {
         "id": "f48d9f76-d1ff-42e0-bc94-919640feb818",
         "name": "user",
-        "composite": false,
+        "description": "User role",
+        "composite": true,
+        "composites": {
+          "client": {
+            "insider": [
+              "client_user"
+            ]
+          }
+        },
         "clientRole": false,
         "containerId": "WebInsights",
         "attributes": {}
@@ -85,6 +93,22 @@
             "account": [
               "view-profile",
               "manage-account"
+            ]
+          }
+        },
+        "clientRole": false,
+        "containerId": "WebInsights",
+        "attributes": {}
+      },
+      {
+        "id": "57f9e197-74ab-4229-8012-fae387d29828",
+        "name": "admin",
+        "description": "Admin role",
+        "composite": true,
+        "composites": {
+          "client": {
+            "insider": [
+              "client_admin"
             ]
           }
         },
@@ -408,7 +432,26 @@
           "attributes": {}
         }
       ],
-      "insider": []
+      "insider": [
+        {
+          "id": "03f75166-fe59-4603-80a6-18952ecfd08a",
+          "name": "client_user",
+          "description": "",
+          "composite": false,
+          "clientRole": true,
+          "containerId": "a8e56061-509a-4a76-bc4b-1f5b91a6d5d4",
+          "attributes": {}
+        },
+        {
+          "id": "73b8b760-ce39-426e-8fd4-f881e2f79480",
+          "name": "client_admin",
+          "description": "",
+          "composite": false,
+          "clientRole": true,
+          "containerId": "a8e56061-509a-4a76-bc4b-1f5b91a6d5d4",
+          "attributes": {}
+        }
+      ]
     }
   },
   "groups": [],
@@ -664,22 +707,20 @@
     {
       "id": "a8e56061-509a-4a76-bc4b-1f5b91a6d5d4",
       "clientId": "insider",
-      "name": "",
+      "name": "insider",
       "description": "",
-      "rootUrl": "http://localhost:3000/",
+      "rootUrl": "",
       "adminUrl": "",
       "baseUrl": "",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
-      "secret": "**********",
       "redirectUris": [
-        "http://localhost:3000/*",
-        "http://locahost:8000/*"
+        "*"
       ],
       "webOrigins": [
-        "http://localhost:3000"
+        "*"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -688,15 +729,15 @@
       "implicitFlowEnabled": false,
       "directAccessGrantsEnabled": true,
       "serviceAccountsEnabled": false,
-      "publicClient": false,
+      "publicClient": true,
       "frontchannelLogout": false,
       "protocol": "openid-connect",
       "attributes": {
         "saml.multivalued.roles": "false",
         "saml.force.post.binding": "false",
         "frontchannel.logout.session.required": "false",
-        "post.logout.redirect.uris": "+",
-        "oauth2.device.authorization.grant.enabled": "true",
+        "post.logout.redirect.uris": "*",
+        "oauth2.device.authorization.grant.enabled": "false",
         "backchannel.logout.revoke.offline.tokens": "false",
         "saml.server.signature.keyinfo.ext": "false",
         "use.refresh.tokens": "false",
