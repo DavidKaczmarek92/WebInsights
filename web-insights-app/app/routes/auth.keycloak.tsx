@@ -1,12 +1,11 @@
 import type { ActionFunction, LoaderFunction } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import { authenticator } from "~/utils/auth";
 
-export const loader: LoaderFunction = ({ request }) => {
-  return authenticator.authenticate("keycloak", request, {
-    successRedirect: "/",
-  });
+export const loader: LoaderFunction = () => {
+  return redirect("/");
 };
 
-export const action: ActionFunction = async ({ request }) => {
-  await authenticator.authenticate("keycloak", request);
+export const action: ActionFunction = ({ request }) => {
+  return authenticator.authenticate("keycloak", request);
 };
