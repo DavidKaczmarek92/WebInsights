@@ -1,7 +1,6 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import type { User } from "~/utils/auth";
 import { Form, Link, useLoaderData } from "@remix-run/react";
-import { Typography, Icon } from "@components/core";
 import { isAuthenticated } from "~/utils/auth";
 
 export const loader: LoaderFunction = async ({ request }) => {
