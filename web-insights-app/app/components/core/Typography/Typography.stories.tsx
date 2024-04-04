@@ -3,7 +3,7 @@ import type { Tag } from "./Typography";
 import { Typography as TypographyComponent } from "./Typography";
 
 const meta: Meta<typeof TypographyComponent> = {
-  title: "Design System/Primitive",
+  title: "Design System/Core",
   component: TypographyComponent,
 };
 
@@ -26,7 +26,7 @@ const tags: Array<Tag> = [
 export const Typography: Story = {
   render: () => {
     return (
-      <>
+      <div>
         {tags.map((tag) => (
           <div key={tag}>
             <TypographyComponent as="h3">Tag {tag}</TypographyComponent>
@@ -47,7 +47,7 @@ export const Typography: Story = {
             </div>
           </div>
         ))}
-      </>
+      </div>
     );
   },
 };

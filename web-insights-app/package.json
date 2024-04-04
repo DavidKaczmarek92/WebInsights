@@ -15,7 +15,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "eslint": "npx eslint --max-warnings 0 --ext .ts,.tsx .",
-    "stylelint": "stylelint \"**/*.css\""
+    "stylelint": "stylelint \"**/*.css\"",
+    "icons": "npx @svgr/cli --out-dir app/components/core/Icon/Icons -- app/components/core/Icon/assets"
   },
   "dependencies": {
     "@remix-run/css-bundle": "^2.8.1",
@@ -42,6 +43,10 @@
     "@storybook/react": "^8.0.2",
     "@storybook/react-vite": "^8.0.2",
     "@storybook/testing-library": "^0.2.2",
+    "@svgr/cli": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-prettier": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.3",
