@@ -3,6 +3,8 @@ package org.webinsights.api.workflow;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,8 +16,11 @@ public class WorkflowService {
     this.workflowRepository = workflowRepository;
   }
 
-  public List<Workflow> findAllWorkflows() {
-    return new ArrayList<>(workflowRepository.findAllByOrderByCreatedAtAsc());
+  public List<Workflow> findAllWorkflows(String createdBy) {
+    return new ArrayList<>(workflowRepository.findAllByOrderByCreatedAtDesc())
+        .stream()
+            .filter(workflow -> Objects.equals(workflow.getCreatedBy(), createdBy))
+            .collect(Collectors.toList());
   }
 
   public Workflow findWorkflowById(Long id) {

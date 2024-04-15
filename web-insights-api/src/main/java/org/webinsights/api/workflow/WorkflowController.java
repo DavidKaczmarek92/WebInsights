@@ -15,8 +15,8 @@ public class WorkflowController {
   }
 
   @GetMapping
-  public List<Workflow> getAllWorkflows() {
-    return workflowService.findAllWorkflows();
+  public List<Workflow> getAllWorkflows(Authentication authentication) {
+    return workflowService.findAllWorkflows(authentication.getName());
   }
 
   @GetMapping("/{id}")
