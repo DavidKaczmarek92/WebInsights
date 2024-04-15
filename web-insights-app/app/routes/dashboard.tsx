@@ -26,14 +26,14 @@ export const loader: LoaderFunction = async ({ request }) => {
       });
     }
 
-    const workflows: Array<{ title: string; id: number }> = await res.json();
+    const workflows: Array<{ name: string; id: number }> = await res.json();
 
     return json({ workflows });
   }
 };
 
 export default function Dashboard() {
-  const data: { workflows: [{ title: string; id: number }] } =
+  const data: { workflows: [{ name: string; id: number }] } =
     useLoaderData<typeof loader>();
 
   return (
@@ -43,8 +43,8 @@ export default function Dashboard() {
         <button>Logout</button>
       </Form>
       <Link to="/">Go to home page</Link>
-      {data.workflows.map(({ title, id }) => (
-        <h2 key={id}>Workflow title: {title}</h2>
+      {data.workflows.map(({ name, id }) => (
+        <h2 key={id}>Workflow title: {name}</h2>
       ))}
     </div>
   );

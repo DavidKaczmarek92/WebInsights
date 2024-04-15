@@ -17,15 +17,20 @@ public class Workflow {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  @Setter private String title;
+  @Setter private String name;
+  @Setter private String description;
   @CreatedDate private Date createdAt;
 
   @LastModifiedDate private Date lastModifiedAt;
 
+  @Setter private String createdBy;
+
   protected Workflow() {}
 
-  public Workflow(String title) {
-    this.title = title;
+  public Workflow(String name, String description, String createdBy) {
+    this.name = name;
+    this.description = description;
+    this.createdBy = createdBy;
   }
 
   @Override
@@ -33,8 +38,8 @@ public class Workflow {
 
     return "Workflow [id="
         + id
-        + ", title="
-        + title
+        + ", name="
+        + name
         + ", createAt= "
         + createdAt
         + ", lastModifiedAt= "
