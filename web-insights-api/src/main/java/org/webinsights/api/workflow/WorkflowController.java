@@ -2,6 +2,7 @@ package org.webinsights.api.workflow;
 
 import java.util.List;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,7 +25,10 @@ public class WorkflowController {
   }
 
   @PostMapping
-  public Workflow createWorkflow(@RequestBody Workflow workflow) {
+  public Workflow createWorkflow(@RequestBody Workflow workflow, Authentication authentication) {
+
+    workflow.setCreatedBy(authentication.getName());
+
     return workflowService.saveWorkflow(workflow);
   }
 

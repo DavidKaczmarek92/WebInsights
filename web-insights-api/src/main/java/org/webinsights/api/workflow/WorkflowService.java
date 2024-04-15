@@ -31,7 +31,8 @@ public class WorkflowService {
   public Workflow updateWorkflow(Long id, Workflow workflowDetails) {
     Workflow workflow = findWorkflowById(id);
 
-    workflow.setTitle(workflowDetails.getTitle());
+    workflow.setName(workflowDetails.getName());
+    workflow.setDescription(workflowDetails.getDescription());
 
     return workflowRepository.save(workflow);
   }
