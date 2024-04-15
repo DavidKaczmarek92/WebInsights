@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WorkflowRepository extends CrudRepository<Workflow, Long> {
-  List<Workflow> findAllByOrderByCreatedAtAsc();
+  List<Workflow> findAllByOrderByCreatedAtDesc();
 }
