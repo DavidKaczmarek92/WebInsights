@@ -12,7 +12,11 @@ export type Tag =
   | "h5"
   | "h6";
 
-export type Variant = "bold" | "normal" | "light";
+export enum Variant {
+  LIGHT = "font-light",
+  NORMAL = "font-normal",
+  BOLD = "font-bold",
+}
 
 type TypographyProps = {
   as?: Tag;
@@ -23,15 +27,19 @@ type TypographyProps = {
 
 export function Typography({
   as: Tag = "p",
-  variant = "normal",
+  variant = Variant.NORMAL,
   className,
   children,
 }: TypographyProps) {
   const classes = cn(
+    variant,
     {
-      "font-bold": variant === "bold",
-      "font-normal": variant === "normal",
-      "font-light": variant === "light",
+      "text-3xl": Tag === "h1",
+      "text-2xl": Tag === "h2",
+      "text-xl": Tag === "h3",
+      "text-lg": Tag === "h4",
+      "text-base": Tag === "h5",
+      "text-small": Tag === "h6",
     },
     className,
   );
