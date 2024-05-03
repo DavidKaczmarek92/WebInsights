@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { Tag } from "./Typography";
-import { Typography as TypographyComponent } from "./Typography";
+import { Typography as TypographyComponent, Variant } from "./Typography";
 
 const meta: Meta<typeof TypographyComponent> = {
   title: "Design System/Core",
@@ -31,17 +31,17 @@ export const Typography: Story = {
           <div key={tag}>
             <TypographyComponent as="h3">Tag {tag}</TypographyComponent>
             <div>
-              <TypographyComponent as={tag} variant="bold">
+              <TypographyComponent as={tag} variant={Variant.LIGHT}>
                 {text}
               </TypographyComponent>
             </div>
             <div>
-              <TypographyComponent as={tag} variant="normal">
+              <TypographyComponent as={tag} variant={Variant.NORMAL}>
                 {text}
               </TypographyComponent>
             </div>
             <div>
-              <TypographyComponent as={tag} variant="light">
+              <TypographyComponent as={tag} variant={Variant.BOLD}>
                 {text}
               </TypographyComponent>
             </div>

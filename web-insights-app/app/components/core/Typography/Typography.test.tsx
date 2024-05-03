@@ -1,6 +1,6 @@
+import type { Tag } from "./Typography";
 import { render, screen } from "app/utils/testUtils";
-import type { Variant, Tag } from "./Typography";
-import { Typography } from "./Typography";
+import { Typography, Variant } from "./Typography";
 
 describe("<Typography />", () => {
   test("should render p tag as default tag", () => {
@@ -42,14 +42,14 @@ describe("<Typography />", () => {
   });
 
   describe("Variants", () => {
-    const cases: Array<Variant> = ["bold", "normal", "light"];
+    const cases: Array<Variant> = [Variant.LIGHT, Variant.NORMAL, Variant.BOLD];
 
     test.each(cases)("should render %s variant", (variant) => {
       render(<Typography variant={variant}>Lorem</Typography>);
 
       const element = screen.getByText("Lorem");
 
-      expect(element).toHaveClass(`font-${variant}`);
+      expect(element).toHaveClass(`${variant}`);
     });
   });
 });
