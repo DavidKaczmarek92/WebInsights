@@ -32,7 +32,6 @@ export function Typography({
   children,
 }: TypographyProps) {
   const classes = cn(
-    variant,
     {
       "text-3xl": Tag === "h1",
       "text-2xl": Tag === "h2",
@@ -41,6 +40,7 @@ export function Typography({
       "text-base": Tag === "h5",
       "text-small": Tag === "h6",
     },
+    variant,
     className,
   );
 
