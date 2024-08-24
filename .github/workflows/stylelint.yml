@@ -12,7 +12,7 @@ env:
 
 defaults:
   run:
-    working-directory: ./web-insights-app
+    working-directory: ./web-insights-web
 
 jobs:
   linting:

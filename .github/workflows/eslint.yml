@@ -3,7 +3,6 @@ name: eslint
 on:
   pull_request:
     paths:
-      - '**/*.tsx'
       - '**/*.ts'
     branches:
       - main
@@ -13,7 +12,7 @@ env:
 
 defaults:
   run:
-    working-directory: ./web-insights-app
+    working-directory: ./web-insights-web
 
 jobs:
   linting:
@@ -32,4 +31,4 @@ jobs:
         run: npm ci
 
       - name: Code Linting
-        run: npm run eslint
+        run: npm run lint

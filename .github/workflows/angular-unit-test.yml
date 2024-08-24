@@ -1,9 +1,9 @@
-name: jest unit test
+name: angular unit test
 
 on:
   pull_request:
     paths:
-      - '**/*.(ts|tsx)'
+      - '**/*.ts'
     branches:
       - main
 
@@ -12,11 +12,11 @@ env:
 
 defaults:
   run:
-    working-directory: ./web-insights-app
+    working-directory: ./web-insights-web
 
 jobs:
   linting:
-    name: jest unit test
+    name: angular unit test
     runs-on: ubuntu-latest
     steps:
       - name: Install NodeJS
