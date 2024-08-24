@@ -1,10 +1,9 @@
-name: eslint
+name: web-stylelint
 
 on:
   pull_request:
     paths:
-      - '**/*.tsx'
-      - '**/*.ts'
+      - '**/*.css'
     branches:
       - main
 
@@ -13,11 +12,11 @@ env:
 
 defaults:
   run:
-    working-directory: ./web-insights-app
+    working-directory: ./web-insights-web
 
 jobs:
   linting:
-    name: eslint
+    name: web stylelint
     runs-on: ubuntu-latest
     steps:
       - name: Install NodeJS
@@ -31,5 +30,5 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Code Linting
-        run: npm run eslint
+      - name: Style Linting
+        run: npm run stylelint
