@@ -1,4 +1,4 @@
-name: eslint
+name: web-eslint
 
 on:
   pull_request:
@@ -16,7 +16,7 @@ defaults:
 
 jobs:
   linting:
-    name: eslint
+    name: web eslint
     runs-on: ubuntu-latest
     steps:
       - name: Install NodeJS

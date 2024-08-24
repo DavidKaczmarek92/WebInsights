@@ -1,4 +1,4 @@
-name: karma unit test
+name: web unit test
 
 on:
   pull_request:
@@ -16,7 +16,7 @@ defaults:
 
 jobs:
   linting:
-    name: karma unit test
+    name: web unit test
     runs-on: ubuntu-latest
     steps:
       - name: Install NodeJS

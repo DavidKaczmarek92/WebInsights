@@ -1,4 +1,4 @@
-name: stylelint
+name: web-stylelint
 
 on:
   pull_request:
@@ -16,7 +16,7 @@ defaults:
 
 jobs:
   linting:
-    name: stylelint
+    name: web stylelint
     runs-on: ubuntu-latest
     steps:
       - name: Install NodeJS
