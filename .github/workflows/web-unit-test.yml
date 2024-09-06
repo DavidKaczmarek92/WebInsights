@@ -1,4 +1,4 @@
-name: web unit test
+name: web-unit-test
 
 on:
   pull_request:
@@ -31,4 +31,4 @@ jobs:
         run: npm ci
 
       - name: Run Unit Tests
-        run: ng test --no-watch --no-progress --browsers=ChromeHeadless
+        run: npm run test --no-watch --no-progress --browsers=ChromeHeadless
