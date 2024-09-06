@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { ExampleComponent } from './example.component';
+import { ExampleSecondComponent } from '../example-second/example-second.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<ExampleComponent> = {
