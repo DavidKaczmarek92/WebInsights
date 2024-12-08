@@ -29,6 +29,12 @@
               {
                 "glob": "**/*",
                 "input": "public"
+
+              },
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "/assets"
               }
             ],
             "styles": [
@@ -130,6 +136,7 @@
   "cli": {
     "schematicCollections": [
       "@angular-eslint/schematics"
-    ]
+    ],
+    "analytics": false
   }
 }
