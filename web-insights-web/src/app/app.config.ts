@@ -14,27 +14,21 @@ import {
 
 import { routes } from './app.routes';
 
-// TODO: https://medium.com/@ragabon/create-multiple-environment-ts-in-angular-using-env-and-automate-using-node-js-933503fca752
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
-      // Configuration details for Keycloak
       config: {
-        url: 'http://localhost:8888', // URL of the Keycloak server
-        realm: 'WebInsights', // Realm to be used in Keycloak
-        clientId: 'insider', // Client ID for the application in Keycloak
+        url: 'http://localhost:8888',
+        realm: 'WebInsights',
+        clientId: 'insider',
       },
-      // Options for Keycloak initialization
       initOptions: {
-        onLoad: 'check-sso', // Action to take on load
+        onLoad: 'check-sso',
         silentCheckSsoRedirectUri:
           window.location.origin + '/assets/silent-check-sso.html', // URI for silent SSO checks
       },
-      // Enables Bearer interceptor
       enableBearerInterceptor: true,
-      // Prefix for the Bearer token
       bearerPrefix: 'Bearer',
-      // URLs excluded from Bearer token addition (empty by default)
       bearerExcludedUrls: ['/assets', '/clients/public'],
     });
 }
@@ -52,7 +46,6 @@ const KeycloakInitializerProvider: Provider = {
   deps: [KeycloakService],
 };
 
-// https://github.com/mauriciovigolo/keycloak-angular/issues/384#issuecomment-1895845160
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
