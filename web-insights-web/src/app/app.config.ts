@@ -11,16 +11,23 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-
+import { environment } from '../environments/environment';
+import {
+  ENV_CONFIG,
+  EnvironmentConfig,
+} from '../environments/environment-config.token';
 import { routes } from './app.routes';
 
-function initializeKeycloak(keycloak: KeycloakService) {
+function initializeKeycloak(
+  keycloak: KeycloakService,
+  config: EnvironmentConfig
+) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost:8888',
-        realm: 'WebInsights',
-        clientId: 'insider',
+        url: config.keycloak.url,
+        realm: config.keycloak.realm,
+        clientId: config.keycloak.clientId,
       },
       initOptions: {
         onLoad: 'check-sso',
@@ -43,11 +50,12 @@ const KeycloakInitializerProvider: Provider = {
   provide: APP_INITIALIZER,
   useFactory: initializeKeycloak,
   multi: true,
-  deps: [KeycloakService],
+  deps: [KeycloakService, ENV_CONFIG],
 };
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    { provide: ENV_CONFIG, useValue: environment },
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(withInterceptorsFromDi()),
     KeycloakInitializerProvider,
