@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import {
-  Router,
   ActivatedRouteSnapshot,
+  Router,
   RouterStateSnapshot,
 } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';

@@ -1,5 +1,5 @@
-import { APP_INITIALIZER, Provider } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { APP_INITIALIZER, Provider } from '@angular/core';
 import { KeycloakBearerInterceptor, KeycloakService } from 'keycloak-angular';
 import { ENV_CONFIG } from 'src/environments/environment-config.token';
 import { initializeKeycloak } from './initialize-keycloak';
