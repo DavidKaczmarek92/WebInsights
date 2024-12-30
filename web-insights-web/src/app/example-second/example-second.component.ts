@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'sp-example-second',
+  selector: 'wi-example-second',
   standalone: true,
   imports: [],
   templateUrl: './example-second.component.html',
