@@ -10,7 +10,7 @@ import { ExampleSecondComponent } from '../example-second/example-second.compone
   styleUrl: './example.component.css',
 })
 export class ExampleComponent {
-  @Input() readonly text = 'Hello, World!';
+  @Input() text = 'Hello, World!';
   private readonly authService: KeycloakService;
 
   constructor(authService: KeycloakService) {
