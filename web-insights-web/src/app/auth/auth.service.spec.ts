@@ -31,7 +31,7 @@ describe('AuthService', () => {
     expect(authService.isLoading()).toBeTruthy();
   });
 
-  it('should set isLoading to false when logout fails', async () => {
+  it('should handle logout failure', async () => {
     keycloakServiceSpy.logout.and.returnValues(Promise.reject('error'));
 
     try {
