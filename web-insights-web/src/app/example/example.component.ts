@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { KeycloakService } from 'keycloak-angular';
+import { AuthService } from '@app/auth/auth.service';
 import { ExampleSecondComponent } from '../example-second/example-second.component';
 
 @Component({
@@ -11,13 +11,13 @@ import { ExampleSecondComponent } from '../example-second/example-second.compone
 })
 export class ExampleComponent {
   @Input() text = 'Hello, World!';
-  private readonly authService: KeycloakService;
+  isLoading;
 
-  constructor(authService: KeycloakService) {
-    this.authService = authService;
+  constructor(private readonly authService: AuthService) {
+    this.isLoading = this.authService.isLoading;
   }
 
-  public async logout() {
+  async logout() {
     await this.authService.logout();
   }
 }
