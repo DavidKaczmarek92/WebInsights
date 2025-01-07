@@ -1,4 +1,4 @@
-package io.web_insights.backend.config;
+package io.web_insights.server.config;
 
 import java.util.Collection;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package io.web_insights.backend.workflow;
+package io.web_insights.server.workflow;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;

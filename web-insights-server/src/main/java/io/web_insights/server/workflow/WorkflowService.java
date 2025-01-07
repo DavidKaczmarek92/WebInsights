@@ -1,4 +1,4 @@
-package io.web_insights.backend.workflow;
+package io.web_insights.server.workflow;
 
 import jakarta.persistence.EntityNotFoundException;
 import java.util.ArrayList;
