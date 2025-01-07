@@ -4,7 +4,7 @@ plugins {
 
 rootProject.name = "WebInsights"
 
-include("web-insights-api")
+include("web-insights-server")
 include("web-insights-docker")
 
 gitHooks {

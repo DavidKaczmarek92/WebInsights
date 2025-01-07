@@ -1,4 +1,4 @@
-package org.webinsights.api.config;
+package io.web_insights.server.config;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
