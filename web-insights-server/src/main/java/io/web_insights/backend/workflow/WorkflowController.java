@@ -1,4 +1,4 @@
-package org.webinsights.api.workflow;
+package io.web_insights.backend.workflow;
 
 import java.util.List;
 import org.springframework.http.ResponseEntity;

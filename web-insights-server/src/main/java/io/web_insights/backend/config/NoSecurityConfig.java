@@ -1,4 +1,4 @@
-package org.webinsights.api.config;
+package io.web_insights.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
