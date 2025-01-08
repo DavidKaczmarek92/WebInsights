@@ -1,4 +1,5 @@
-# WebInsights API layer
+# WebInsights Server
+In here we have all backend code for the WebInsights project.
 
 Run spring boot:
 ```sh
