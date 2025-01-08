@@ -1,0 +1,27 @@
+{
+  "realm" : "WebInsights",
+  "users" : [ {
+    "id" : "7290b4a1-056c-47e2-814a-e588aaa8e899",
+    "createdTimestamp" : 1735585526286,
+    "username" : "insider",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "firstName" : "insider name",
+    "lastName" : "insider last name",
+    "email" : "d.test@test.com",
+    "credentials" : [ {
+      "id" : "3659ceea-c5e4-4373-aee4-5f8190459ea4",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1735585566436,
+      "secretData" : "{\"value\":\"mFFMpDILwYEYfsHNfwnx+1Py8AzFOZLXStq5xxMjLoc=\",\"salt\":\"byLk1M3fKAZnLNso1vfX1g==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-webinsights" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}
