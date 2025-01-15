@@ -1,14 +1,13 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private readonly keycloakService = inject(KeycloakService);
   private readonly _isLoading = signal(false);
   readonly isLoading = this._isLoading.asReadonly();
-
-  constructor(private keycloakService: KeycloakService) {}
 
   async logout() {
     this._isLoading.set(true);
