@@ -4,8 +4,9 @@ plugins {
 
 rootProject.name = "WebInsights"
 
-include("web-insights-server")
 include("web-insights-docker")
+include("web-insights-server")
+include("web-insights-tests")
 
 gitHooks {
     commitMsg { conventionalCommits() }
