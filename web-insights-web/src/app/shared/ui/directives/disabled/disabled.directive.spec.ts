@@ -37,7 +37,7 @@ describe('DisabledDirective', () => {
     expect(buttonElement.classList.contains('cursor-not-allowed')).toBe(false);
   });
 
-  it('should not add disabled attribute when wiDisabled is true', () => {
+  it('should add disabled attribute when wiDisabled is true', () => {
     component.isDisabled = true;
     fixture.detectChanges();
 
