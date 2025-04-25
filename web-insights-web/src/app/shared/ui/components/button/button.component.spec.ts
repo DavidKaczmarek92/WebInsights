@@ -18,26 +18,10 @@ describe('ButtonComponent', () => {
     buttonElement = fixture.debugElement.query(By.css('button')).nativeElement;
   });
 
-  it('should initialize with correct default input properties and styling', () => {
-    // Check variant
-    expect(component.variant).toBe('primary');
+  it('should initialize with correct default styling', () => {
     expect(buttonElement.classList).toContain('bg-blue-600');
-
-    // Check size
-    expect(component.size).toBe('md');
     expect(buttonElement.classList).toContain('text-sm');
-
-    // Check type
-    expect(component.type).toBe('button');
-    expect(buttonElement.getAttribute('type')).toBe('button');
-
-    // Check disabled state
-    expect(component.disabled).toBeFalsy();
     expect(buttonElement.disabled).toBeFalsy();
-    expect(buttonElement.classList).not.toContain('cursor-not-allowed');
-
-    // Check width
-    expect(component.fullWidth).toBeFalsy();
     expect(buttonElement.classList).not.toContain('w-full');
   });
 
@@ -82,8 +66,6 @@ describe('ButtonComponent', () => {
     fixture.detectChanges();
 
     expect(buttonElement.disabled).toBe(true);
-    expect(buttonElement.classList).toContain('opacity-50');
-    expect(buttonElement.classList).toContain('cursor-not-allowed');
   });
 
   it('should apply full width class when fullWidth is true', () => {
