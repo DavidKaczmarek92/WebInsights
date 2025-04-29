@@ -12,6 +12,10 @@ export class HomePageComponent {
   constructor(private authService: AuthService) {}
 
   async logout() {
-    await this.authService.logout();
+    try {
+      await this.authService.logout();
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
   }
 }
