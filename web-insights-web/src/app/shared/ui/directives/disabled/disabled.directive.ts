@@ -1,4 +1,4 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 
 @Directive({
   selector: '[wiDisabled]',
@@ -6,13 +6,9 @@ import { Directive, HostBinding, Input } from '@angular/core';
   host: {
     '[class.opacity-50]': 'wiDisabled',
     '[class.cursor-not-allowed]': 'wiDisabled',
+    '[attr.disabled]': 'wiDisabled ? true : null',
   },
 })
 export class DisabledDirective {
   @Input() wiDisabled = false;
-
-  @HostBinding('attr.disabled')
-  get isDisabled(): string | null {
-    return this.wiDisabled ? 'disabled' : null;
-  }
 }
