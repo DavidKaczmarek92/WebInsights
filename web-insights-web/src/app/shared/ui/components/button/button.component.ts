@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { DisabledDirective } from '../../directives/disabled/disabled.directive';
+import { FullWidthDirective } from '../../directives/full-width/full-width.directive';
 
 type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'success' | 'warning';
 type ButtonSize = 'sm' | 'md' | 'lg';
@@ -21,15 +22,15 @@ const SIZE_CLASSES: Record<ButtonSize, string> = {
 @Component({
   selector: 'wi-button',
   standalone: true,
-  imports: [CommonModule, DisabledDirective],
+  imports: [CommonModule, DisabledDirective, FullWidthDirective],
   template: `
     <button
       [ngClass]="[
         'px-4 py-2 rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2',
         variantClasses,
         sizeClasses,
-        fullWidth ? 'w-full' : '',
       ]"
+      [wiFullWidth]="fullWidth"
       [type]="type"
       [wiDisabled]="disabled">
       <ng-content />
